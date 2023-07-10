@@ -4,11 +4,12 @@ version = "0.1.0"
 description = "fun with microprocessors"
 authors = ["Mark Koelle <mkoelle@gmail.com>"]
 readme = "README.md"
-packages = [{include = "mighty_mite"}]
+packages = [{include = "src"}]
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "~3.10"
 microwebsrv2 = {git = "https://github.com/jczic/MicroWebSrv2.git"}
+ampy = "^0.1.2"
 
 [tool.poetry.group.dev.dependencies]
 esptool = "^4.6.2"

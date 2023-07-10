@@ -45,7 +45,8 @@ sudo apt-get purge --auto-remove brltty
 ### unable to connect to serial monitor?
 
 ```sh
-# The initial baud rate of the chip is 74880, use this rate to see boot messages
+# The initial baud rate of the chip is 74880
+# use this rate to see boot messages, usefull if stuck in boot loop
 tio -b 74880 -d 8 -f none -s 1 -p none | tee serial.log
 ```
 
