@@ -29,3 +29,11 @@ esptool.py --chip esp8266 --port /dev/ttyUSB0 --baud 460800 write_flash -z 0x0 e
 #remove brltty - 
 sudo apt-get purge --auto-remove brltty
 ```
+
+## Resources
+
+- [Awesome ESP](https://github.com/agucova/awesome-esp)
+- [MicroWebSrv2](https://github.com/jczic/MicroWebSrv2)
+- Message Queuing Telemetry Transport (MTTQ)
+    - [What is MQTT and How It Works](https://randomnerdtutorials.com/what-is-mqtt-and-how-it-works/)
+    - [MicroPython – Getting Started with MQTT on ESP32/ESP8266](https://randomnerdtutorials.com/micropython-mqtt-esp32-esp8266/)

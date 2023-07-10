@@ -8,6 +8,7 @@ packages = [{include = "mighty_mite"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
+microwebsrv2 = {git = "https://github.com/jczic/MicroWebSrv2.git"}
 
 [tool.poetry.group.dev.dependencies]
 esptool = "^4.6.2"
