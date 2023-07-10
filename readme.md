@@ -8,12 +8,24 @@ microprocessors for fun
     - pyenv for python version managment
     - [poetry](https://python-poetry.org/docs/) for package management
     - [CH341 serial drivers](https://github.com/juliagoda/CH341SER#tutorial-on-ubuntu)
+- tio - a simple serial device I/O tool
+    - [tio installation](https://github.com/tio/tio#4-installation)
 
 ## Dev flow
 
 ```sh
 # launch the local virtual env
 poetry shell
+```
+
+```sh
+# listing devices
+tio -L
+
+# connecting to serial
+tio /dev/ttyUSB0
+# is the same as:
+tio -b 115200 -d 8 -f none -s 1 -p none /dev/ttyUSB0
 ```
 
 ## Flashing a new chip
@@ -34,7 +46,7 @@ sudo apt-get purge --auto-remove brltty
 
 ```sh
 # The initial baud rate of the chip is 74880, use this rate to see boot messages
-picocom /dev/ttyUSB1 -b74880 | tee log.log
+tio -b 74880 -d 8 -f none -s 1 -p none | tee serial.log
 ```
 
 ## Resources
