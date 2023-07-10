@@ -20,14 +20,21 @@ poetry shell
 
 ```sh
 curl https://micropython.org/resources/firmware/esp8266-20230426-v1.20.0.bin --output esp8266.bin
-esptool.py --chip esp8266 --port /dev/ttyUSB0 --baud 460800 write_flash -z 0x0 esp8266.bin
+esptool.py --port /dev/ttyUSB0 --baud 460800 write_flash --flash_size=detect -fm dout 0 esp8266.bin
 ```
 
 ### chip not showing up?
 
-```
+```sh
 #remove brltty - 
 sudo apt-get purge --auto-remove brltty
+```
+
+### unable to connect to serial monitor?
+
+```sh
+# The initial baud rate of the chip is 74880, use this rate to see boot messages
+picocom /dev/ttyUSB1 -b74880 | tee log.log
 ```
 
 ## Resources
