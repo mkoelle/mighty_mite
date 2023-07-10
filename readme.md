@@ -14,6 +14,10 @@ microprocessors for fun
 ## Dev flow
 
 ```sh
+# install the supported python version
+pyenv install
+# install the project dependencies
+poetry install
 # launch the local virtual env
 poetry shell
 ```
