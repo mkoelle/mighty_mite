@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "mighty-mite"
+version = "0.1.0"
+description = "fun with microprocessors"
+authors = ["Mark Koelle <mkoelle@gmail.com>"]
+readme = "README.md"
+packages = [{include = "mighty_mite"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[tool.poetry.group.dev.dependencies]
+esptool = "^4.6.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
