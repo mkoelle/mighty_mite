@@ -16,10 +16,12 @@ microprocessors for fun
 ```sh
 # install the supported python version
 pyenv install
-# install the project dependencies
-poetry install
+
 # launch the local virtual env
 poetry shell
+
+# install the project dependencies
+poetry install
 ```
 
 ```sh
@@ -30,6 +32,13 @@ tio -L
 tio /dev/ttyUSB0
 # is the same as:
 tio -b 115200 -d 8 -f none -s 1 -p none /dev/ttyUSB0
+```
+
+```sh
+# list all deployed files
+ampy --port /dev/ttyUSB0 --baud 115200 ls
+# deploy
+ampy --port /dev/ttyUSB1 --baud 115200 put src/ .
 ```
 
 ## Flashing a new chip
