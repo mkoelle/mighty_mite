@@ -38,7 +38,8 @@ tio -b 115200 -d 8 -f none -s 1 -p none /dev/ttyUSB0
 # list all deployed files
 ampy --port /dev/ttyUSB0 --baud 115200 ls
 # deploy
-ampy --port /dev/ttyUSB1 --baud 115200 put src/ .
+ampy --port /dev/ttyUSB0 --baud 115200 put src/ .
+## Remember to restart the board
 ```
 
 ## Flashing a new chip
