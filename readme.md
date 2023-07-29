@@ -61,7 +61,7 @@ sudo apt-get purge --auto-remove brltty
 ```sh
 # The initial baud rate of the chip is 74880
 # use this rate to see boot messages, usefull if stuck in boot loop
-tio -b 74880 -d 8 -f none -s 1 -p none | tee serial.log
+tio -b 74880 -d 8 -f none -s 1 -p none /dev/ttyUSB0 | tee serial.log
 ```
 
 ## Resources
