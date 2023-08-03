@@ -1,4 +1,4 @@
-# mighty might
+# mighty mite
 
 Microprocessors for fun.
 
