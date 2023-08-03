@@ -1,9 +1,9 @@
-import {fireEvent, render, screen } from '@testing-library/svelte'
+import { render, screen } from '@testing-library/svelte'
 import App from './App.svelte'
 
 
-describe("Counter", () => {
-    test("Should render", async () => {
+describe("App", () => {
+    it("renders", async () => {
         // Arrange
         
         // Act
@@ -14,7 +14,7 @@ describe("Counter", () => {
         expect(header.textContent).toBe('Mighty Mite')
     });
 
-    test("Should have a counter", async () => {
+    it("has a counter", async () => {
         // Arrange
 
         // Act
