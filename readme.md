@@ -79,3 +79,5 @@ tio -b 74880 -d 8 -f none -s 1 -p none $SERIAL | tee serial.log
 - Message Queuing Telemetry Transport (MTTQ)
     - [What is MQTT and How It Works](https://randomnerdtutorials.com/what-is-mqtt-and-how-it-works/)
     - [MicroPython – Getting Started with MQTT on ESP32/ESP8266](https://randomnerdtutorials.com/micropython-mqtt-esp32-esp8266/)
+- [sveltekit websocket app](https://www.inngest.com/blog/building-a-realtime-websocket-app-using-sveltekit)
+- [micropython websocket](https://www.donskytech.com/using-websocket-in-micropython-a-practical-example/)
