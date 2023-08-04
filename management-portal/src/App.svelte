@@ -3,7 +3,7 @@
   import WifiForm from './lib/WifiForm.svelte';
 </script>
 
-<main>
+<main class="container">
   <h1>Mighty Mite</h1>
 
   <div class="card">

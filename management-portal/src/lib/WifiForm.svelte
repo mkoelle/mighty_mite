@@ -1,16 +1,18 @@
 <script lang="ts">
-
+    import { Field, Input, Button } from "svelte-chota";
+    let network, pass="";
 </script>
 
-<div>
+<form name="setNetwork" action="#">
     <h2>WiFi connections</h2>
-    <form name="setNetwork" action="#">
-        <label for="network">Network SSID</label>
-        <textarea id="network"></textarea>
-        <br />
-        <label for="password">Password</label>
-        <textarea id="password" ></textarea>
-        <br />
-        <button>Submit</button>
-    </form>
-</div>
+
+    <Field label="Network SSID" >
+        <Input id="network" placeholder="My Home Network" bind:network/>
+    </Field>
+    
+    <Field label="Password" >
+        <Input id="password" password bind:pass/>
+    </Field>
+    <br />
+    <Button submit>Submit</Button>
+</form>
