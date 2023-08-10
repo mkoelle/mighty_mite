@@ -1,11 +1,13 @@
 # mighty might
 
-microprocessors for fun
+Microprocessors for fun.
+
+I'm programming with the [LOLIN D1 mini](https://www.wemos.cc/en/latest/d1/d1_mini.html), a super inexpensive, arduino compatible board.
 
 ## Dev setup
 
 - python 3
-    - pyenv for python version managment
+    - pyenv for python version management
     - [poetry](https://python-poetry.org/docs/) for package management
     - [CH341 serial drivers](https://github.com/juliagoda/CH341SER#tutorial-on-ubuntu)
 - tio - a simple serial device I/O tool
@@ -28,17 +30,21 @@ poetry install
 # listing devices
 tio -L
 
+# set the serial port of the device based on the output of tio -L
+export SERIAL=/dev/ttyUSB0 # for linux
+export SERIAL=/dev/tty.usbserial-10 # for mac
+
 # connecting to serial
-tio /dev/ttyUSB0
+tio $SERIAL
 # is the same as:
-tio -b 115200 -d 8 -f none -s 1 -p none /dev/ttyUSB0
+tio -b 115200 -d 8 -f none -s 1 -p none $SERIAL
 ```
 
 ```sh
 # list all deployed files
-ampy --port /dev/ttyUSB0 --baud 115200 ls
+ampy --port $SERIAL --baud 115200 ls
 # deploy
-ampy --port /dev/ttyUSB0 --baud 115200 put src/ .
+ampy --port $SERIAL --baud 115200 put src/ .
 ## Remember to restart the board
 ```
 
@@ -46,7 +52,7 @@ ampy --port /dev/ttyUSB0 --baud 115200 put src/ .
 
 ```sh
 curl https://micropython.org/resources/firmware/esp8266-20230426-v1.20.0.bin --output esp8266.bin
-esptool.py --port /dev/ttyUSB0 --baud 460800 write_flash --flash_size=detect -fm dout 0 esp8266.bin
+esptool.py --port $SERIAL --baud 460800 write_flash --flash_size=detect -fm dout 0 esp8266.bin
 ```
 
 ### chip not showing up?
@@ -61,7 +67,7 @@ sudo apt-get purge --auto-remove brltty
 ```sh
 # The initial baud rate of the chip is 74880
 # use this rate to see boot messages, usefull if stuck in boot loop
-tio -b 74880 -d 8 -f none -s 1 -p none /dev/ttyUSB0 | tee serial.log
+tio -b 74880 -d 8 -f none -s 1 -p none $SERIAL | tee serial.log
 ```
 
 ## Resources

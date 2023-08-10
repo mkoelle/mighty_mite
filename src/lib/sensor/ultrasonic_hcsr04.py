@@ -5,9 +5,9 @@ __version__ = '0.2.0'
 __author__ = 'Roberto Sánchez'
 __license__ = "Apache License 2.0. https://www.apache.org/licenses/LICENSE-2.0"
 
-class HCSR:
+class UltrasonicSensor:
     """
-    Driver to use the untrasonic sensor HC-SR04.
+    Driver to use the ultrasonic sensor HC-SR04.
     The sensor range is between 2cm and 4m.
     The timeouts received listening to echo pin are converted to OSError('Out of range')
     """

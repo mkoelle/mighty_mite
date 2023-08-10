@@ -1,7 +1,7 @@
 from machine import Pin, PWM
 
 class Servo:
-    # these defaults work for the standard TowerPro SG90
+    # these defaults work for the standard TowerPro MG995
     __servo_pwm_freq = 50
     __min_u10_duty = 26 - 0 # offset for correction
     __max_u10_duty = 123 - 10  # offset for correction
