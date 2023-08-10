@@ -10,6 +10,7 @@ I'm programming with the [LOLIN D1 mini](https://www.wemos.cc/en/latest/d1/d1_mi
     - pyenv for python version management
     - [poetry](https://python-poetry.org/docs/) for package management
     - [CH341 serial drivers](https://github.com/juliagoda/CH341SER#tutorial-on-ubuntu)
+    - [MicroPython Tool (ampy)](https://github.com/scientifichackers/ampy)
 - tio - a simple serial device I/O tool
     - [tio installation](https://github.com/tio/tio#4-installation)
 
