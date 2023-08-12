@@ -73,6 +73,7 @@ tio -b 74880 -d 8 -f none -s 1 -p none $SERIAL | tee serial.log
 
 ## Resources
 
+- [MicroPython ESP8266](https://docs.micropython.org/en/latest/esp8266/quickref.html)
 - [Awesome ESP](https://github.com/agucova/awesome-esp)
 - [MicroWebSrv2](https://github.com/jczic/MicroWebSrv2)
 - Message Queuing Telemetry Transport (MTTQ)
