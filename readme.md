@@ -4,6 +4,13 @@ Microprocessors for fun.
 
 I'm programming with the [LOLIN D1 mini](https://www.wemos.cc/en/latest/d1/d1_mini.html), a super inexpensive, arduino compatible board.
 
+features:
+
+- Wifi
+- 26MHz crystal
+- 4MB flash
+- (?) 0016 KB ram
+
 ## Dev setup
 
 - python 3
@@ -51,9 +58,10 @@ ampy --port $SERIAL --baud 115200 put src/ .
 
 ## Flashing a new chip
 
-```sh
+```sh https://micropython.org/resources/firmware/esp8266-20230426-v1.20.0.bin
 curl https://micropython.org/resources/firmware/esp8266-20230426-v1.20.0.bin --output esp8266.bin
-esptool.py --port $SERIAL --baud 460800 write_flash --flash_size=detect -fm dout 0 esp8266.bin
+esptool.py --port $SERIAL erase_flash
+esptool.py --port $SERIAL --baud 1000000 write_flash --flash_size=detect -fm dout 0 esp8266.bin
 ```
 
 ### chip not showing up?
