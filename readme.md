@@ -54,6 +54,9 @@ ampy --port $SERIAL --baud 115200 ls
 # deploy
 ampy --port $SERIAL --baud 115200 put src/ .
 ## Remember to restart the board
+
+## new method:
+mpremote fs cp path/to/package.py :package.py
 ```
 
 ## Flashing a new chip
