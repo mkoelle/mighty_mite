@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "test": "vitest",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "api": "json-server --watch mock-api-data.json"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^2.4.3",

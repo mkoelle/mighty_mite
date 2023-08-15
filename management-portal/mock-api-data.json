@@ -1,0 +1,26 @@
+{
+  "networks": [
+    {
+      "name": "network-1",
+      "visible": true,
+      "saved": false
+    },
+    {
+      "name": "network-2",
+      "saved": true,
+      "visible": true,
+      "priority": 2
+    },
+    {
+      "name": "network-3",
+      "visible": true,
+      "saved": false
+    },
+    {
+      "name": "network-4",
+      "saved": true,
+      "visible": false,
+      "priority": 1
+    }
+  ]
+}

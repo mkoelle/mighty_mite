@@ -12,7 +12,7 @@
     let networks;
 
     onMount(async () => {
-        await fetch(`http://localhost/networks.json`)
+        await fetch(`http://localhost:3000/networks`)
             .then((r) => r.json())
             .then((data) => {
                 networks = data;
@@ -43,7 +43,13 @@
                     </ul>
                 {/each}
             {:else}
-                <p class="loading">loading...</p>
+                <ul>
+                    <li>
+                        <DropdownItem class="loading" inactive>
+                            loading...
+                        </DropdownItem>
+                    </li>
+                </ul>
             {/if}
         </Dropdown>
         <Input placeholder="Network" />
