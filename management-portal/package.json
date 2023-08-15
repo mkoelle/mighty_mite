@@ -19,10 +19,16 @@
     "jsdom": "^22.1.0",
     "svelte": "^4.1.2",
     "svelte-check": "^3.4.6",
-    "svelte-chota": "^1.8.6",
     "tslib": "^2.6.1",
     "typescript": "^5.1.6",
     "vite": "^4.4.8",
     "vitest": "^0.34.1"
+  },
+  "dependencies": {
+    "@floating-ui/dom": "^1.5.1",
+    "flowbite": "^1.8.1",
+    "flowbite-svelte": "^0.43.2",
+    "flowbite-svelte-icons": "^0.3.6",
+    "tailwind-merge": "^1.14.0"
   }
 }
