@@ -7,7 +7,6 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "~3.10"
-machine = "^0.0.1"
 
 [tool.poetry.group.dev.dependencies]
 esptool = "^4.6.2"
@@ -33,4 +32,4 @@ test          = "pytest"
 _lint_mypy    = "poetry run mypy src"
 _lint_flake8  = "poetry run flake8"
 _lint_black   = "poetry run black src"
-lint          = [ "_lint_black","_lint_flake8"]
+lint          = [ "_lint_black","_lint_flake8" ]
