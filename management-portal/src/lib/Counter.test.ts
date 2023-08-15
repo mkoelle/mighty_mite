@@ -1,10 +1,10 @@
-import {fireEvent, render, screen } from '@testing-library/svelte'
+import { fireEvent, render, screen } from '@testing-library/svelte'
 import Counter from './Counter.svelte'
 
 describe("Counter", () => {
     it("starts at 0", async () => {
         // Arrange
-        
+
         // Act
         render(Counter)
         // Assert
@@ -13,7 +13,7 @@ describe("Counter", () => {
         expect(counter.textContent).toBe('count is 0')
     });
 
-    it("incremens by 1 when pressed", async () => {
+    it("increments by 1 when pressed", async () => {
         // Arrange
         render(Counter)
         const counter = await screen.findByRole('button')
