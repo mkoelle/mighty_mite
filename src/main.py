@@ -1,5 +1,7 @@
 import math
 from machine import Pin
+import network
+import ujson
 
 # from time import sleep
 from lib.sensor.ultrasonic_hcsr04 import UltrasonicSensor
@@ -15,12 +17,46 @@ naw.STATIC_DIR = "www"
 naw.INDEX_FILE = "www/index.html"
 
 
+wlan_ap = network.WLAN(network.AP_IF)
+wlan_sta = network.WLAN(network.STA_IF)
+
+
 # Declare route directly with decorator
 @naw.route("/ping")
 async def ping(request):
     await request.write("HTTP/1.1 200 OK\r\n\r\n")
+    await request.write("Content-Type: text/html\r\n")
     await request.write("pong")
 
+
+@naw.route("/networks")
+async def list_wifi_networks(request):
+    try:
+        wlan_sta.active(True)
+        networks = wlan_sta.scan()
+
+        AUTHMODE = {0: "open", 1: "WEP", 2: "WPA-PSK", 3: "WPA2-PSK", 4: "WPA/WPA2-PSK"}
+        network_list = [
+            {
+                "ssid": info[0].decode('utf-8'),
+                "channel": info[2],
+                "signal_strength": info[3],
+                "security": AUTHMODE.get(info[4], '?') 
+            } 
+            for info in networks
+        ]
+        
+        response = {
+            "networks": network_list
+        }
+        # return 200, "application/json",
+        network.WLAN(network.AP_IF)
+        await request.write("HTTP/1.1 200 OK\r\n\r\n")
+        await request.write( ujson.dumps(response))
+    except OSError as e:
+        print("exception", str(e))
+        await request.write("HTTP/1.1 500 ERR\r\n\r\n")
+        await request.write( str(e))
 
 loop = asyncio.get_event_loop()
 loop.create_task(naw.run())
