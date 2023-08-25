@@ -5,7 +5,7 @@
     ssid:"My Home Network",
     security: "WEP",
     channel: 11,
-    strength : -50
+    signal_strength : -50
   }
 </script>
 
@@ -17,4 +17,4 @@
 
 <Story name="Primary" args={defaults}/>
 
-<Story name="Low Signal" args={{...defaults, strength: -90}}/>
+<Story name="Low Signal" args={{...defaults, signal_strength: -90}}/>

@@ -3,7 +3,7 @@
   export let ssid     = "Network SSID"
   export let security = "Security"
   export let channel = "Channel"
-  export let strength = -50
+  export let signal_strength = -50
   // export let Known    = false
   const strengthToColor = (s:number) => {
     // -30 dBm is Maximum signal strength
@@ -34,7 +34,7 @@
     </p>
     <p class="text-sm text-gray-500 truncate dark:text-gray-400">Ch: {channel} Sec: {security}</p>
   </div>
-  <Badge color="{strengthToColor(strength)}" rounded class="px-2.5 py-0.5">
-    <Indicator color="{strengthToColor(strength)}" size="xs" class="mr-1" />{strength}
+  <Badge color="{strengthToColor(signal_strength)}" rounded class="px-2.5 py-0.5">
+    <Indicator color="{strengthToColor(signal_strength)}" size="xs" class="mr-1" />{signal_strength}
   </Badge>
 </div>

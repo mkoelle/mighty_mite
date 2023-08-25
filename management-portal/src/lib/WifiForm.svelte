@@ -1,5 +1,6 @@
 <script lang="ts">
     import { onMount } from "svelte";
+    import { Listgroup, ListgroupItem } from 'flowbite-svelte';
     import {
         Label,
         ButtonGroup,
@@ -9,6 +10,7 @@
         Button,
     } from "flowbite-svelte";
     import { Icon } from "flowbite-svelte-icons";
+    import Network from "./Network.svelte";
     let networks;
 
     onMount(async () => {
@@ -22,6 +24,18 @@
 
 <form name="setNetwork" action="#">
     <h2>WiFi connections</h2>
+
+    {#if networks}
+    <Listgroup>
+        {#each networks as network}
+        <ListgroupItem>
+            <Network {...network}/>
+        </ListgroupItem>
+        {/each}
+    </Listgroup>
+    {:else}
+        Loading networks ...
+    {/if}
 
     <ButtonGroup class="w-full">
         <Button
