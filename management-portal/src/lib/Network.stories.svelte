@@ -2,9 +2,10 @@
   import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
   import Network from './Network.svelte';
   let defaults = {
-    SSID:"My Home Network",
-    Security: "My Home Network",
-    Strength : -50
+    ssid:"My Home Network",
+    security: "WEP",
+    channel: 11,
+    strength : -50
   }
 </script>
 
@@ -16,4 +17,4 @@
 
 <Story name="Primary" args={defaults}/>
 
-<Story name="Low Signal" args={{...defaults, Strength: -90}}/>
+<Story name="Low Signal" args={{...defaults, strength: -90}}/>
