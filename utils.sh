@@ -9,7 +9,7 @@ function deploy {
     echo ""
   fi
   echo "Deploying!"
-  ampy --port $SERIAL --baud 115200 put management-portal/dist/ www
+  ampy --port $SERIAL --baud 115200 put management-portal/www/ www
   ampy --port $SERIAL --baud 115200 put src/ .
   echo "Deploy Done!"
 }
