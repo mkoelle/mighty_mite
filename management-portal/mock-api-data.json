@@ -3,26 +3,38 @@
     {
       "ssid": "network-1",
       "channel": 6,
-      "signal_strength": -50,
-      "security":"WEP"
-    },
-    {
-      "name": "network-2",
-      "channel": 11,
       "signal_strength": -30,
-      "security":"WEP"
+      "security": "WEP"
     },
     {
-      "name": "network-3",
-      "channel": 3,
-      "signal_strength": -76,
-      "security":"WEP"
-    },
-    {
-      "name": "network-4",
+      "ssid": "network-2",
       "channel": 6,
-      "signal_strength": -69,
-      "security":"WEP"
+      "signal_strength": -50,
+      "security": "WEP"
+    },
+    {
+      "ssid": "network-3",
+      "channel": 11,
+      "signal_strength": -60,
+      "security": "WEP"
+    },
+    {
+      "ssid": "network-4",
+      "channel": 3,
+      "signal_strength": -67,
+      "security": "WEP"
+    },
+    {
+      "ssid": "network-5",
+      "channel": 6,
+      "signal_strength": -70,
+      "security": "WEP"
+    },
+    {
+      "ssid": "network-6",
+      "channel": 4,
+      "signal_strength": -80,
+      "security": "WEP"
     }
   ]
 }
