@@ -2,6 +2,7 @@ import math
 from machine import Pin
 import network
 import ujson
+import sys
 
 # from time import sleep
 from lib.sensor.ultrasonic_hcsr04 import UltrasonicSensor
@@ -46,14 +47,12 @@ async def list_wifi_networks(request):
             for info in networks
         ]
         
-        response = {
-            "networks": network_list
-        }
-        # return 200, "application/json",
-        network.WLAN(network.AP_IF)
+        response = ujson.dumps({"networks": network_list})
+
         await request.write("HTTP/1.1 200 OK\r\n\r\n")
         await request.write("Content-Type: application/json\r\n")
-        await request.write( ujson.dumps(response))
+        # await request.write(f"Content-Length: {len(response.encode('utf-8'))}\r\n")
+        await request.write( response )
     except OSError as e:
         print("exception", str(e))
         await request.write("HTTP/1.1 500 ERR\r\n\r\n")
