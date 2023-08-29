@@ -52,10 +52,12 @@ async def list_wifi_networks(request):
         # return 200, "application/json",
         network.WLAN(network.AP_IF)
         await request.write("HTTP/1.1 200 OK\r\n\r\n")
+        await request.write("Content-Type: application/json\r\n")
         await request.write( ujson.dumps(response))
     except OSError as e:
         print("exception", str(e))
         await request.write("HTTP/1.1 500 ERR\r\n\r\n")
+        await request.write("Content-Type: text/strings\r\n")
         await request.write( str(e))
 
 loop = asyncio.get_event_loop()
