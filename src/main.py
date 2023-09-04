@@ -1,5 +1,5 @@
 import math
-from machine import Pin, I2C
+from machine import Pin, I2C, ADC
 import uasyncio as asyncio
 import network
 import ujson
@@ -37,10 +37,31 @@ I2C_SDA_PIN = 4
 i2c = I2C(scl=Pin(I2C_SCL_PIN), sda=Pin(I2C_SDA_PIN))
 oled = SSD1306_I2C(WIDTH, HEIGHT, i2c)
 
+seconds = 0
+
+light = 0
+
+adc = ADC(0)
+
+
+async def read_light():
+    global light
+    while True:
+        light = adc.read()
+        print(f"L   {light}")
+        await asyncio.sleep_ms(50)
+
+
+async def count_seconds():
+    global seconds
+    while True:
+        # Update the seconds counter
+        seconds += 1
+        # Wait for 1 second
+        await asyncio.sleep(1)
+
 
 async def display_task():
-    seconds = 0
-
     while True:
         # Clear the display
         oled.fill(0)
@@ -49,22 +70,27 @@ async def display_task():
         x = 0
         y = 0
 
-        # Draw the first line on the display
-        oled.text("Hello, World!", x, y)
+        # Can display up to 16 characters per line
+        lines = [
+            "Laser Tag!",
+            f"Seconds: {seconds}",
+            "",
+            f"Light {light}",
+            "",
+            "1234567890123456"
+        ]
 
-        # Draw the second line on the display (counting seconds)
-        oled.text("Seconds: {}".format(seconds), x, y + 10)
+        for idx, line in enumerate(lines):
+            oled.text(line, x, y + (idx * 10))
 
         # Refresh the display
         oled.show()
 
         # Update the seconds counter
-        print(f"i've been on for {seconds} seconds")
+        print(f"s               {seconds}")
 
-        # Update the seconds counter
-        seconds += 1
         # Wait for 1 second
-        await asyncio.sleep(1)
+        await asyncio.sleep_ms(100)
 
 
 async def flash_led():
@@ -117,7 +143,13 @@ async def list_wifi_networks(request):
         await request.write(str(e))
 
 
-tasks = [flash_led(), naw.run(), display_task()]
+tasks = [
+    flash_led(),
+    naw.run(),
+    display_task(),
+    read_light(),
+    count_seconds()
+]
 # Run the asyncio tasks forever
 
 
